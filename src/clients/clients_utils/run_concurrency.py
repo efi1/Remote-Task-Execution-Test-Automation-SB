@@ -18,7 +18,7 @@ def run_concurrency(api_client, tests_data):
     for path, json_data, test_name in tests_data:
         t = Thread(target=lambda q, arg1, arg2, arg3: q.put({arg3: api_client.post(url=arg1, json=arg2)}),
                    args=(que, path, json_data, test_name), name=test_name)
-        logging.info(F"starting thread: {t}, {t.name}")
+        logging.info(F"starting thread: {t}")
         t.start()
         threads_list.append(t)
 
