@@ -30,7 +30,7 @@ Other code which support the api request within the FastAPI agent resides under 
   - upgrade the pip package by: **python -m pip install --upgrade pip**
   - install setup.py by: **python -m install .** (include the dot at the end) - see elaboration below.
 
-- # install setup.py 
+## install setup.py 
     The setup.py file is placed at the root of the Python project directory. It primarily serves two purposes:
     - It includes choices and metadata about the program, such as the package name, version, author, license, 
     minimal dependencies, entry points, data files, and so on.
