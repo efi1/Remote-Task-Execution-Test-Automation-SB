@@ -1,6 +1,3 @@
-from importlib.resources import files
-from pathlib import Path
-from src.cfg.cfg_global import settings
 import json
 
 

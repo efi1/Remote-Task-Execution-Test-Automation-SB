@@ -15,10 +15,10 @@ def run_concurrency(api_client, tests_data):
     threads_list = list()
     logging.info(F"called by: {inspect.stack()[1][3]}")
     logging.info(F"in {inspect.currentframe().f_code.co_name}")
-    for idx, (path, json_data) in enumerate(tests_data):
-        t = Thread(target=lambda q, arg1, arg2: q.put(api_client.post(url=arg1, json=arg2), name=arg2['task_data']),
-                   args=(que, path, json_data))
-        logging.info(F"starting thread: {t}")
+    for path, json_data, test_name in tests_data:
+        t = Thread(target=lambda q, arg1, arg2, arg3: q.put({arg3: api_client.post(url=arg1, json=arg2)}),
+                   args=(que, path, json_data, test_name), name=test_name)
+        logging.info(F"starting thread: {t}, {t.name}")
         t.start()
         threads_list.append(t)
 

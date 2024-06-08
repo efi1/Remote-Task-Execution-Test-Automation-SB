@@ -11,7 +11,10 @@ setup(
     description='sb tasks assignment',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    package_data={},
+    package_data={
+        "cfg.cfg_global": ["*.json"],
+        "cfg.cfg_tests": ["*.json"]
+    },
 
     # metadata
     author='Efi Ovadia',

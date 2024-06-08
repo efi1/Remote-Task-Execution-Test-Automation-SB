@@ -4,10 +4,8 @@ from importlib.resources import files
 from _pytest.fixtures import fixture
 import json
 from starlette.testclient import TestClient
-from src.clients.fastapi.tasks_base import app
 from src.cfg.cfg_global import settings
-
-logging.getLogger()
+import src.clients.fastapi.tasks_base as tasks_base
 
 
 @fixture(scope="session")
@@ -17,7 +15,7 @@ def api_client():
     :return: test client.
     """
     logging.info('initiate the FastAPI client')
-    client = TestClient(app)
+    client = TestClient(tasks_base.app)
     yield client
 
 

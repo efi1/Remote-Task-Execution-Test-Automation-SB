@@ -38,7 +38,7 @@ Other code which support the api request within the FastAPI agent resides under 
 
 ## To run the tests via pytest (for both Windows and Linux)
 - First, install the setup.py as mentions before 
-- To run the test via cli, while being in the 'src' folder, type (and virtualenv is activated):
+- To run the test via cli, while being in the project's root tree, type (and virtualenv is activated):
   **python -m pytests**
  
 

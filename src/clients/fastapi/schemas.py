@@ -8,7 +8,7 @@ class TaskInput(BaseModel):
     task_name: str
     task_parameters: dict
 
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             "example": {
                 "task_name": "<task name>",

@@ -3,7 +3,7 @@
 		"task_name": "start HTTP server",
 		"task_parameters": {
 			"page_uri": "http://wrong_url",
-			"port": 8090,
+			"port": 8089,
 			"data_to_return": ""
 		}
 	},
