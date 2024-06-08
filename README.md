@@ -23,6 +23,8 @@ Tests input placed under **src.cfg.cft_tests** in the json files which resides t
 The agent code resides under **src.clients.fastapi** folder.
 Other code which support the api request within the FastAPI agent resides under **src.clients.clients_utils**
 
+Logs are printed to the console and also being saved to **logs** folder under the project's root.
+if no logs folder, it is created during execution.
 
 ## Before running the tests:
   - clone it from Github to your local environment.
