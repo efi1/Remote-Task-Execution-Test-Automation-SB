@@ -11,6 +11,8 @@ src/SafeBreachProject.egg-info/
 src/clients/fastapi/__pycache__/
 src/clients/clients_utils/__pycache__/
 src/tests/__pycache__/
+src/cfg/cfg_global/__pycache__/
+src/clients/fastapi/routers/__pycache__/
 logs
 ./logfile.log
 logs/logfile.log

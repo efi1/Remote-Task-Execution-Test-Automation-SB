@@ -1,5 +1,4 @@
 setuptools~=70.0.0
-sqlmodel~=0.0.18
 uvicorn~=0.30.0
 fastapi~=0.111.0
 pydantic~=2.7.2
