@@ -9,7 +9,6 @@ SEARCH_PID_CMD = 'pstree -p'
 RUN_PROCESSES = 'bash run_processes.sh &'
 
 
-
 def get_pids(s):
     res = []
     digits = []
