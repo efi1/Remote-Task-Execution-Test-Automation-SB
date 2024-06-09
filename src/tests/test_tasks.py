@@ -9,6 +9,12 @@ from src.clients.fastapi.tasks_base import app
 
 @pytest.mark.parametrize('test_name', [resource.name for resource in files(settings.cfg_tests_dir).iterdir()])
 def test_perform_tasks(api_client: app, test_name: str) -> None:
+    """
+    Testing various task using the files in src.cfg.cfg_tests as input (parameterized test)
+    :param api_client: the FastAPI client
+    :param test_name: test name as taken from src.cfg.cfg_tests folder
+    :return:
+    """
     cfg_data = cfg_get_data(test_name)
     task_data = cfg_data['task_data']
     expected_data = cfg_data['return_data']
@@ -24,6 +30,11 @@ def test_perform_tasks(api_client: app, test_name: str) -> None:
 
 
 def test_run_parallel(api_client: app) -> None:
+    """
+    Run the same tests as in 'test_perform_tasks' above, but concurrently.
+    :param api_client: api_client: the FastAPI client
+    :return: test name
+    """
     tests_data = []
     tests_expected_data = {}
     for resource in files(settings.cfg_tests_dir).iterdir():
