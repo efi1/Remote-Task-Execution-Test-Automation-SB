@@ -42,9 +42,8 @@ def test_run_parallel(api_client: app) -> None:
         cfg_data = cfg_get_data(cfg_name)
         task_data = cfg_data['task_data']
         api_path = cfg_data['api_path']
-        expected_data = cfg_data['return_data']
         tests_data.append((api_path, task_data, cfg_name))
-        tests_expected_data[cfg_name] = expected_data
+        tests_expected_data[cfg_name] = cfg_data['return_data']
     res = list(run_concurrency(api_client, tests_data))
     for elem in res:
         cfg_name = list(elem)[0]
