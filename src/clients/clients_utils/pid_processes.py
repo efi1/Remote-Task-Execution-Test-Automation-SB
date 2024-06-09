@@ -53,7 +53,7 @@ def get_processes(pid) -> list:
         logging.info(F"in bash executing command: '{SEARCH_PID_CMD} {pid}'")
         res = container.exec_run(cmd=['/bin/bash', '-c', F"{SEARCH_PID_CMD} {pid}"])  # execute bash command
         processes = get_pids(res.output.decode('utf-8'))
-        logging.info(F"pids sub children for parent pid: {pid} are {processes}")
+        logging.info(F"pids' sub children for parent pid: {pid} are {processes}")
     except Exception as e:
         logging.info(F'failed running scripts in container: {e}')
         container.stop()  # remove container
