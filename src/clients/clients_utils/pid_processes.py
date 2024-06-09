@@ -8,7 +8,6 @@ CREATE_CMD = 'docker run --name ubuntu_testing -it --rm -d "efiradware/ubuntu-te
 SEARCH_PID_CMD = 'pstree -p'
 RUN_PROCESSES = 'bash run_processes.sh &'
 
-client = docker.from_env()
 
 
 def get_pids(s):
@@ -27,6 +26,7 @@ def get_pids(s):
 def is_docker_installed() -> bool:
     res = subprocess.run('docker ps', capture_output=True)
     if len(res.stderr) > 0:
+        logging.info("docker isn't installed in this host - result in error response")
         return False
     return True
 
@@ -37,6 +37,7 @@ def get_processes(pid) -> list:
             if c.id == c_id:
                 return c
 
+    client = docker.from_env()
     logging.info(F"called by: {inspect.stack()[1][3]}")  # who called this function
     logging.info(F"in {inspect.currentframe().f_code.co_name}")  # what function we are now
     logging.info('creating docker container')
