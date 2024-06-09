@@ -48,8 +48,8 @@ def test_run_parallel(api_client: app) -> None:
     for elem in res:
         cfg_name = list(elem)[0]
         http_resp = elem[cfg_name]
-        expected = tests_expected_data.get(cfg_name)
         json_res = http_resp.json()
+        expected = tests_expected_data.get(cfg_name)
         assert http_resp.status_code == expected['status_code'], (F"{http_resp.request.url}: Expected status code: "
                                                                   F"{expected['status_code']},"
                                                                   F" actual: {http_resp.status_code},"
