@@ -37,8 +37,8 @@ def get_processes(pid) -> list:
             if c.id == c_id:
                 return c
 
-    logging.info(F"called by: {inspect.stack()[1][3]}")
-    logging.info(F"in {inspect.currentframe().f_code.co_name}")
+    logging.info(F"called by: {inspect.stack()[1][3]}")  # who called this function
+    logging.info(F"in {inspect.currentframe().f_code.co_name}")  # what function we are now
     logging.info('creating docker container')
     res_creation = subprocess.run(CREATE_CMD, capture_output=True)  # create docker container
     assert len(res_creation.stderr) == 0, F"failed to create container: {res_creation.stderr}"
