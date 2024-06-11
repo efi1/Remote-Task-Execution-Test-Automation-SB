@@ -3,7 +3,6 @@ import requests
 import justext
 from fastapi import APIRouter, Request, HTTPException
 from src.clients.fastapi.schemas import TaskInput, TaskOutput
-import src.clients.clients_utils.other_utils as utils
 from src.clients.clients_utils.http_server_handler import HTTPServer
 import src.clients.clients_utils.port_scanner as port_scanner
 import src.clients.clients_utils.pid_processes as pid_processes
@@ -90,9 +89,8 @@ async def port_scan(task_data: TaskInput) -> TaskOutput:
     :param task_data: domain or an IP
     :return: all open ports within a given port range.
     """
-    params = utils.dict_to_obj(task_data.task_parameters)
     try:
-        resp = list(port_scanner.get_open_ports(**vars(params)))
+        resp = list(port_scanner.get_open_ports(**task_data.task_parameters))
     except Exception as e:
         raise HTTPException(status_code=404, detail=f"failed to scan open port with the given domain/ip. "
                                                     f"parameters are: {task_data.task_parameters}, {e}")
