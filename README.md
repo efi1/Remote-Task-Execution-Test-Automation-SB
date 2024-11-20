@@ -1,5 +1,5 @@
 
-# SB_Home_Assignment
+# SB_Assignment
 
 The goal of this assignment (project) is to develop an agent that will allow the remote execution of tasks.
 The agent is built with a FastAPI framework and responses for various requests.
