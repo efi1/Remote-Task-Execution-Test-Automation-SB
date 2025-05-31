@@ -2,8 +2,9 @@
 
 from setuptools import find_packages, setup
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
+def parse_requirements(filename)-> list:
+    with open(filename, 'r') as f:
+        return [line.strip() for line in f if line and not line.startswith("#")]
 
 setup(
     name='SafeBreachProject',
@@ -17,8 +18,8 @@ setup(
     },
 
     # metadata
-    author='Efi Ovadia',
-    author_email='efovadia@gmail.com',
+    author='',
+    author_email='',
     license='proprietary',
-    install_requires=[required, 'pytest']
+    install_requires=parse_requirements('requirements.txt'),
 )
