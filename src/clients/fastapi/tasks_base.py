@@ -8,6 +8,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 app = FastAPI(title="tasks_base")
 app.include_router(tasks.router)
 app.include_router(tasks.land_page)
+app.include_router(tasks.health_check)
 
 
 @app.middleware("http")

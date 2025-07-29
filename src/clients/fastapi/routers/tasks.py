@@ -12,6 +12,12 @@ import src.clients.clients_utils.registry_handler as registry_handler
 
 router = APIRouter(prefix="/api/tasks")
 land_page = APIRouter()
+health_check = APIRouter(prefix="/health")
+
+
+@health_check.get("/")
+def health_msg():
+    return {"status": "ok"}
 
 
 @land_page.get("/")

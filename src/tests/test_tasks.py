@@ -29,6 +29,7 @@ def test_perform_tasks(api_client: app, test_name: str) -> None:
             'return_value'], F"wrong response val: {res['return_value']}, expected: {expected_data['return_value']}"
 
 
+@pytest.mark.slow
 def test_run_parallel(api_client: app) -> None:
     """
     Run the same tests as in 'test_perform_tasks' above, but concurrently.
